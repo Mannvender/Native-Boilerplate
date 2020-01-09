@@ -1,5 +1,5 @@
-import * as WebBrowser from 'expo-web-browser';
-import React from 'react';
+import * as WebBrowser from 'expo-web-browser'
+import React from 'react'
 import {
   Image,
   Platform,
@@ -8,16 +8,17 @@ import {
   Text,
   TouchableOpacity,
   View,
-} from 'react-native';
+} from 'react-native'
 
-import { MonoText } from '../components/StyledText';
+import MonoText from '../components/StyledText'
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <ScrollView
         style={styles.container}
-        contentContainerStyle={styles.contentContainer}>
+        contentContainerStyle={styles.contentContainer}
+      >
         <View style={styles.welcomeContainer}>
           <Image
             source={
@@ -35,8 +36,9 @@ export default function HomeScreen() {
           <Text style={styles.getStartedText}>Get started by opening</Text>
 
           <View
-            style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-            <MonoText>screens/HomeScreen.js</MonoText>
+            style={[styles.codeHighlightContainer, styles.homeScreenFilename]}
+          >
+            <MonoText background="red">screens/HomeScreen.js</MonoText>
           </View>
 
           <Text style={styles.getStartedText}>
@@ -59,19 +61,20 @@ export default function HomeScreen() {
         </Text>
 
         <View
-          style={[styles.codeHighlightContainer, styles.navigationFilename]}>
+          style={[styles.codeHighlightContainer, styles.navigationFilename]}
+        >
           <MonoText style={styles.codeHighlightText}>
             navigation/MainTabNavigator.js
           </MonoText>
         </View>
       </View>
     </View>
-  );
+  )
 }
 
 HomeScreen.navigationOptions = {
   header: null,
-};
+}
 
 function DevelopmentModeNotice() {
   if (__DEV__) {
@@ -79,33 +82,33 @@ function DevelopmentModeNotice() {
       <Text onPress={handleLearnMorePress} style={styles.helpLinkText}>
         Learn more
       </Text>
-    );
+    )
 
     return (
       <Text style={styles.developmentModeText}>
         Development mode is enabled: your app will be slower but you can use
         useful development tools. {learnMoreButton}
       </Text>
-    );
+    )
   } else {
     return (
       <Text style={styles.developmentModeText}>
         You are not in development mode: your app will run at full speed.
       </Text>
-    );
+    )
   }
 }
 
 function handleLearnMorePress() {
   WebBrowser.openBrowserAsync(
-    'https://docs.expo.io/versions/latest/workflow/development-mode/'
-  );
+    'https://docs.expo.io/versions/latest/workflow/development-mode/',
+  )
 }
 
 function handleHelpPress() {
   WebBrowser.openBrowserAsync(
-    'https://docs.expo.io/versions/latest/workflow/up-and-running/#cant-see-your-changes'
-  );
+    'https://docs.expo.io/versions/latest/workflow/up-and-running/#cant-see-your-changes',
+  )
 }
 
 const styles = StyleSheet.create({
@@ -164,7 +167,7 @@ const styles = StyleSheet.create({
     ...Platform.select({
       ios: {
         shadowColor: 'black',
-        shadowOffset: { width: 0, height: -3 },
+        shadowOffset: {width: 0, height: -3},
         shadowOpacity: 0.1,
         shadowRadius: 3,
       },
@@ -195,4 +198,4 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#2e78b7',
   },
-});
+})
